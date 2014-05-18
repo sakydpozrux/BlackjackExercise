@@ -1,6 +1,7 @@
 #include "blackjack.hpp"
 
-Blackjack::Blackjack()
+Blackjack::Blackjack(Deck& deck)
+    : deck(deck)
 {
 }
 
