@@ -3,8 +3,10 @@
 #include <string>
 #include <list>
 #include <boost/lexical_cast.hpp>
+#include <exception>
 
 #include <iostream>
+
 
 CardList::CardList(const std::list<int>& list_of_ints)
     : cards(list_of_ints)
@@ -22,7 +24,7 @@ unsigned int CardList::size() const
 }
 
 
-std::list<int> CardList::init_cards(const std::string& input_str)
+std::list<int> CardList::init_cards(const std::string& input_str) throw(boost::bad_lexical_cast, invalid_card_value)
 {
     std::string str = std::string(input_str);
     boost::trim(str);
@@ -31,19 +33,18 @@ std::list<int> CardList::init_cards(const std::string& input_str)
     boost::split(split_list_of_strings, str, boost::is_any_of(" ,\t,\n"), boost::token_compress_on);
 
     std::list<int> split_list_of_ints;
-    std::cout << "PUSHING BACK:" << std::endl;
-    try
+
+    invalid_card_value e_invalid_card_value;
+
+    for(std::string& a : split_list_of_strings)
     {
-        for(std::string& a : split_list_of_strings)
-        {
-            std::cout << boost::lexical_cast<int>(a) << std::endl;
-            split_list_of_ints.push_back(boost::lexical_cast<int>(a));
-        }
+        int current = boost::lexical_cast<int>(a);
+
+        if (current < 1 || current > 10) throw e_invalid_card_value;
+        split_list_of_ints.push_back(current);
     }
-    catch(boost::bad_lexical_cast& e)
-    {
-        std::cout << "TODO:" << e.what() << std::endl;
-    }
+
 
     return split_list_of_ints;
 }
+

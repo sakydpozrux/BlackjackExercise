@@ -1,14 +1,14 @@
 #include "cardlist.hpp"
 #include "deck.hpp"
+#include <exception>
 
-#include <iostream>
-
-Deck::Deck(const CardList& cards_list)
+Deck::Deck(const CardList& cards_list) throw(initial_deck_size_is_not_52)
     : cards(cards_list)
 {
+    initial_deck_size_is_not_52 e;
+    if (cards.size() != 52) throw e;
     //assert cards.size = 52
-
-    std::cout << "SIZE [TODO]:" << cards.size() << std::endl;
+    //std::cout << "CardList.size() == " << cards.size() << std::endl;
 }
 
 
