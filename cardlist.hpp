@@ -19,6 +19,8 @@ public:
     CardList(const std::list<int>& list_of_ints);
     CardList(const std::string& input_str);
     unsigned int size() const;
+    int front() const;
+    void pop_front();
 
 private:
     std::list<int> init_cards(const std::string& input_str) throw(boost::bad_lexical_cast, invalid_card_value);

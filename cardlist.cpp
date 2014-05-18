@@ -23,6 +23,16 @@ unsigned int CardList::size() const
     return cards.size();
 }
 
+int CardList::front() const
+{
+    return cards.front();
+}
+
+void CardList::pop_front()
+{
+    cards.pop_front();
+}
+
 
 std::list<int> CardList::init_cards(const std::string& input_str) throw(boost::bad_lexical_cast, invalid_card_value)
 {

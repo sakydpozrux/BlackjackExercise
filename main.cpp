@@ -2,6 +2,7 @@
 #include "deck.hpp"
 #include "cardlist.hpp"
 #include <memory>
+#include <playerneverbust.hpp>
 
 #include <iostream>
 
@@ -34,13 +35,13 @@ int main()
     {
         d.reset(new Deck(*input_deck));
     }
-    catch(const initial_deck_size_is_not_52 e)
+    catch(const initial_deck_size_is_not_52& e)
     {
         std::cout << e.what() << std::endl;
         return EXIT_FAILURE;
     }
 
-    Blackjack game = Blackjack(*d);
+    Blackjack game(*d);
     game.start();
 
     return 0;

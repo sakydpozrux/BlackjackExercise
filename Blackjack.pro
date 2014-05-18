@@ -8,12 +8,18 @@ CONFIG += c++11
 SOURCES += main.cpp \
     blackjack.cpp \
     deck.cpp \
-    cardlist.cpp
+    cardlist.cpp \
+    player.cpp \
+    croupier.cpp \
+    playerneverbust.cpp
 
 HEADERS += \
     blackjack.hpp \
     deck.hpp \
-    cardlist.hpp
+    cardlist.hpp \
+    player.hpp \
+    croupier.hpp \
+    playerneverbust.hpp
 
 QMAKE_CXXFLAGS += -Wall
 QMAKE_CXXFLAGS += -Wextra
