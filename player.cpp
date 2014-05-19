@@ -50,13 +50,16 @@ std::list<Card> Player::get_cards() const
 
 std::string Player::round_initial_take(Deck* const deck)
 {
+    // I assume that there are at least 4 cards in the deck.
     cards.push_back(deck->take_next());
     cards.push_back(deck->take_next());
     return round_progress();
 }
 
-std::string Player::hit(Deck* const deck)
+std::string Player::hit(Deck* const deck) throw(deck_is_empty)
 {
+    deck_is_empty e;
+    if (deck->size() < 1) throw e;
     cards.push_back(deck->take_next());
     return round_progress();
 }

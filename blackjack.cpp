@@ -21,17 +21,9 @@ void Blackjack::start()
         std::cout << player->round_initial_take(&deck) << std::endl;
         std::cout << croupier->round_initial_take(&deck) << std::endl;
 
-        for(int i = 0; i < 2; ++i)
-        {
-            if (deck.size() > 0)
-                std::cout << player->hit(&deck) << std::endl;
-        }
 
-        for(int i = 0; i < 2; ++i)
-        {
-            if (deck.size() > 0)
-                std::cout << croupier->hit(&deck) << std::endl;
-        }
+        std::cout << player->use_own_strategy(&deck) << std::endl;
+        std::cout << croupier->use_own_strategy(&deck) << std::endl;
 
         update_scores_after_round();
         std::cout << round_end_status() << std::endl;
@@ -40,10 +32,14 @@ void Blackjack::start()
 
 players_enum Blackjack::result() const
 {
-    if (player->get_round_score() <= 21 && player->get_round_score() > croupier->get_round_score())
-        return PLAYER;
-    else
-        return CROUPIER;
+    bool player_has_more_than_21 = player->get_round_score() > 21;
+    bool croupier_has_more_than_21 = croupier->get_round_score() > 21;
+    bool player_has_more_than_croupier = (player->get_round_score() > croupier->get_round_score());
+
+    if (player_has_more_than_21) return CROUPIER;
+    if (!player_has_more_than_21 && croupier_has_more_than_21) return PLAYER;
+    if (!player_has_more_than_21 && player_has_more_than_croupier) return PLAYER;
+    return CROUPIER;
 }
 
 void Blackjack::update_scores_after_round()

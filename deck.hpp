@@ -10,6 +10,11 @@ struct initial_deck_size_is_not_52 : std::exception
     const char* what() const noexcept {return "Exception: deck size is not 52";}
 };
 
+struct deck_is_empty : std::exception
+{
+    const char* what() const noexcept {return "Exception: deck is empty. Player can\'t take more cards";}
+};
+
 class Deck
 {
     std::list<Card> cards;
