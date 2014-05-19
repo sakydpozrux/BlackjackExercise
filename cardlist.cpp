@@ -8,6 +8,11 @@
 #include <iostream>
 
 
+CardList::CardList()
+    : cards()
+{
+}
+
 CardList::CardList(const std::list<Card>& list_of_cards)
     : cards(list_of_cards)
 {
@@ -52,5 +57,12 @@ std::list<Card> CardList::init_cards(const std::string& input_str) throw(boost::
 
 
     return split_list_of_cards;
+}
+
+std::ostream& operator<<(std::ostream &stream, const CardList& cards)
+{
+    for (Card card : cards.cards)
+        stream << card << " ";
+    return stream;
 }
 

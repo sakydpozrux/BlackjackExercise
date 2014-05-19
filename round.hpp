@@ -1,10 +1,10 @@
 #ifndef ROUND_HPP
 #define ROUND_HPP
 
-enum round_result
+enum players_enum
 {
-    CROUPIER_WON = 0,
-    PLAYER_WON = 1
+    CROUPIER = 0,
+    PLAYER = 1
 };
 
 class Round
@@ -16,10 +16,9 @@ private:
 public:
     Round();
 
-private:
-    round_result result() const;
-    void print_round_progress(round_result res) const;
-    void print_round_end() const;
+
+    int get_player_score() const;
+    int get_croupier_score() const;
 };
 
 #endif // ROUND_HPP

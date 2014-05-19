@@ -7,7 +7,12 @@ Card::Card(int value) throw(invalid_card_value)
     if (value < 1 || value > 10) throw e;
 }
 
-int Card::get_value()
+int Card::get_value() const
 {
     return value;
+}
+
+std::ostream& operator<<(std::ostream& stream, const Card& card)
+{
+    return stream << card.get_value();
 }

@@ -13,7 +13,8 @@ SOURCES += main.cpp \
     croupier.cpp \
     playerneverbust.cpp \
     round.cpp \
-    card.cpp
+    card.cpp \
+    cardlistreader.cpp
 
 HEADERS += \
     blackjack.hpp \
@@ -23,7 +24,8 @@ HEADERS += \
     croupier.hpp \
     playerneverbust.hpp \
     round.hpp \
-    card.hpp
+    card.hpp \
+    cardlistreader.hpp
 
 QMAKE_CXXFLAGS += -Wall
 QMAKE_CXXFLAGS += -Wextra
