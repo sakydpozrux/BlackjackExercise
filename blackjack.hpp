@@ -5,12 +5,17 @@
 #include "deck.hpp"
 #include "player.hpp"
 #include "croupier.hpp"
+#include "round.hpp"
 
 class Blackjack
 {
 private:
     boost::scoped_ptr<Player> player;
     boost::scoped_ptr<Player> croupier;
+
+    int player_score;
+    int croupier_score;
+
     Deck deck;
 public:
     Blackjack(Deck& deck);

@@ -7,8 +7,6 @@ Deck::Deck(const CardList& cards_list) throw(initial_deck_size_is_not_52)
 {
     initial_deck_size_is_not_52 e;
     if (cards.size() != 52) throw e;
-    //assert cards.size = 52
-    //std::cout << "CardList.size() == " << cards.size() << std::endl;
 }
 
 Deck::Deck(const Deck& other)
@@ -31,10 +29,10 @@ unsigned int Deck::size() const
     return cards.size();
 }
 
-int Deck::take_next()
+Card Deck::take_next()
 {
     take_card_mutex.lock();
-    int next_card_val = cards.front();
+    Card next_card_val = cards.front();
     cards.pop_front();
     take_card_mutex.unlock();
 

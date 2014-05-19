@@ -18,7 +18,7 @@ public:
     Deck(const Deck& other);
     Deck& operator=(const Deck& other);
     unsigned int size() const;
-    int take_next();
+    Card take_next();
 private:
     Deck() = delete;
 };

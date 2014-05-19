@@ -44,6 +44,6 @@ int main()
     Blackjack game(*d);
     game.start();
 
-    return 0;
+    return EXIT_SUCCESS;
 }
 

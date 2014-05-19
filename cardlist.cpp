@@ -8,8 +8,8 @@
 #include <iostream>
 
 
-CardList::CardList(const std::list<int>& list_of_ints)
-    : cards(list_of_ints)
+CardList::CardList(const std::list<Card>& list_of_cards)
+    : cards(list_of_cards)
 {
 }
 
@@ -23,7 +23,7 @@ unsigned int CardList::size() const
     return cards.size();
 }
 
-int CardList::front() const
+Card CardList::front() const
 {
     return cards.front();
 }
@@ -34,7 +34,7 @@ void CardList::pop_front()
 }
 
 
-std::list<int> CardList::init_cards(const std::string& input_str) throw(boost::bad_lexical_cast, invalid_card_value)
+std::list<Card> CardList::init_cards(const std::string& input_str) throw(boost::bad_lexical_cast, invalid_card_value)
 {
     std::string str = std::string(input_str);
     boost::trim(str);
@@ -42,19 +42,15 @@ std::list<int> CardList::init_cards(const std::string& input_str) throw(boost::b
     std::list<std::string> split_list_of_strings;
     boost::split(split_list_of_strings, str, boost::is_any_of(" ,\t,\n"), boost::token_compress_on);
 
-    std::list<int> split_list_of_ints;
-
-    invalid_card_value e_invalid_card_value;
+    std::list<Card> split_list_of_cards;
 
     for(std::string& a : split_list_of_strings)
     {
         int current = boost::lexical_cast<int>(a);
-
-        if (current < 1 || current > 10) throw e_invalid_card_value;
-        split_list_of_ints.push_back(current);
+        split_list_of_cards.push_back(Card(current));
     }
 
 
-    return split_list_of_ints;
+    return split_list_of_cards;
 }
 

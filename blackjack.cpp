@@ -3,7 +3,7 @@
 #include "playerneverbust.hpp"
 
 Blackjack::Blackjack(Deck& deck)
-    : player(), croupier(), deck(deck)
+    : player(), croupier(), player_score(0), croupier_score(0), deck(deck)
 {
     player.reset(new PlayerNeverBust);
     croupier.reset(new Croupier);
@@ -11,4 +11,5 @@ Blackjack::Blackjack(Deck& deck)
 
 void Blackjack::start()
 {
+
 }
