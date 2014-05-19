@@ -1,13 +1,14 @@
 #include "player.hpp"
 #include <sstream>
+#include <functional>
 
 Player::Player()
-    : name("PLAYER"), round_score(0), cards()
+    : name("PLAYER"), cards()
 {
 }
 
 Player::Player(const std::string& name)
-    : name(name), round_score(0), cards()
+    : name(name), cards()
 {
 }
 
@@ -23,38 +24,41 @@ std::string Player::get_name() const
 std::string Player::round_progress() const
 {
     std::ostringstream output;
-    output << get_name() << ": " << cards << ": " << round_score;
+    output << get_name() << ": " << cards << ": " << get_round_score();
     return output.str();
 }
 
-void Player::reset_new_round()
+void Player::clear_cards()
 {
-    round_score = 0;
     cards.clear();
 }
 
-int Player::get_round_score()
+int Player::get_round_score() const
 {
-    return round_score;
+    int sum = 0;
+    for(auto it = cards.begin(); it != cards.end(); ++it)
+    {
+        sum += it->get_value();
+    }
+    return sum;
 }
 
-std::list<Card>& Player::get_cards()
+std::list<Card> Player::get_cards() const
 {
     return cards;
 }
 
-void Player::round_initial_take(Deck* const deck)
+std::string Player::round_initial_take(Deck* const deck)
 {
-    hit(deck);
-    hit(deck);
+    cards.push_back(deck->take_next());
+    cards.push_back(deck->take_next());
+    return round_progress();
 }
 
-void Player::hit(Deck* const deck)
+std::string Player::hit(Deck* const deck)
 {
-    Card new_card = deck->take_next();
-    cards.push_back(new_card);
-    round_score += new_card.get_value();
-
+    cards.push_back(deck->take_next());
+    return round_progress();
 }
 
 std::ostream& operator<<(std::ostream& stream, const std::list<Card>& cards)
