@@ -8,7 +8,6 @@ CONFIG += c++11
 SOURCES += main.cpp \
     blackjack.cpp \
     deck.cpp \
-    cardlist.cpp \
     player.cpp \
     croupier.cpp \
     playerneverbust.cpp \
@@ -19,7 +18,6 @@ SOURCES += main.cpp \
 HEADERS += \
     blackjack.hpp \
     deck.hpp \
-    cardlist.hpp \
     player.hpp \
     croupier.hpp \
     playerneverbust.hpp \

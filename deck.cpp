@@ -1,8 +1,7 @@
-#include "cardlist.hpp"
 #include "deck.hpp"
 #include <exception>
 
-Deck::Deck(const CardList& cards_list) throw(initial_deck_size_is_not_52)
+Deck::Deck(const std::list<Card>& cards_list) throw(initial_deck_size_is_not_52)
     : cards(cards_list), take_card_mutex()
 {
     initial_deck_size_is_not_52 e;

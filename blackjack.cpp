@@ -2,6 +2,7 @@
 #include "croupier.hpp"
 #include "playerneverbust.hpp"
 #include "round.hpp"
+#include <sstream>
 
 Blackjack::Blackjack(Deck& deck)
     : player(), croupier(), total_player_score(0), total_croupier_score(0), deck(deck)

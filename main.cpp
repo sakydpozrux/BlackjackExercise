@@ -1,6 +1,5 @@
 #include "blackjack.hpp"
 #include "deck.hpp"
-#include "cardlist.hpp"
 #include <memory>
 #include "playerneverbust.hpp"
 #include "cardlistreader.hpp"

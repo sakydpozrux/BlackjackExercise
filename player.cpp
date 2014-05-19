@@ -1,4 +1,5 @@
 #include "player.hpp"
+#include <sstream>
 
 Player::Player()
     : name("PLAYER"), round_score(0), cards()
@@ -36,7 +37,7 @@ int Player::get_round_score()
     return round_score;
 }
 
-CardList& Player::get_cards()
+std::list<Card>& Player::get_cards()
 {
     return cards;
 }
@@ -50,4 +51,11 @@ void Player::round_initial_take()
 void Player::hit()
 {
     //cards;
+}
+
+std::ostream& operator<<(std::ostream& stream, const std::list<Card>& cards)
+{
+    for (const Card& card : cards)
+        stream << card << " ";
+    return stream;
 }
