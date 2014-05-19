@@ -15,16 +15,27 @@ void Blackjack::start()
 {
     while (deck.size() >= 4)
     {
-        player->reset_round_score();
-        croupier->reset_round_score();
+        player->reset_new_round();
+        croupier->reset_new_round();
 
-        player->round_initial_take();
+        player->round_initial_take(&deck);
         std::cout << player->round_progress() << std::endl;
 
 
-        croupier->round_initial_take();
+        croupier->round_initial_take(&deck);
         std::cout << croupier->round_progress() << std::endl;
 
+        for(int i = 0; i < 2; ++i)
+        {
+            if (deck.size() > 0) player->hit(&deck);
+            std::cout << player->round_progress() << std::endl;
+        }
+
+        for(int i = 0; i < 2; ++i)
+        {
+            if (deck.size() > 0) croupier->hit(&deck);
+            std::cout << croupier->round_progress() << std::endl;
+        }
 
         update_scores_after_round();
         std::cout << round_end_status() << std::endl;
