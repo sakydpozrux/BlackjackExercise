@@ -17,10 +17,18 @@ std::list<Card> CardListReader::create_card_list(std::string contents)
 
     std::list<Card> split_list_of_cards;
 
-    for(std::string& a : split_list_of_strings)
+    try
     {
-        int current = boost::lexical_cast<int>(a);
-        split_list_of_cards.push_back(Card(current));
+        for(std::string& a : split_list_of_strings)
+        {
+            int current = boost::lexical_cast<int>(a);
+            split_list_of_cards.push_back(Card(current));
+        }
+    }
+    catch (std::exception& e)
+    {
+        std::cout << "Fatal error: " << e.what() << std::endl;
+        exit(EXIT_FAILURE);
     }
 
     return split_list_of_cards;

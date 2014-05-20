@@ -1,8 +1,8 @@
 #include "croupier.hpp"
 #include <sstream>
 
-Croupier::Croupier()
-    : Player("CROUPIER")
+Croupier::Croupier(std::string name)
+    : Player(name)
 {
 }
 

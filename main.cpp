@@ -1,49 +1,77 @@
 #include "blackjack.hpp"
 #include "deck.hpp"
 #include <memory>
+#include "player.hpp"
+#include "croupier.hpp"
 #include "playerneverbust.hpp"
 #include "playermaximizewins.hpp"
 #include "cardlistreader.hpp"
-
 #include <list>
 #include "card.hpp"
 #include <iostream>
 
-#define USE_HARDCODED_INPUT true
-#define USE_PLAYER_NEVER_BUST true
+
+void use_correct_input(int argc, char* argv[], std::list<Card>& cards);
+void choose_player(std::shared_ptr<Player>& player);
 
 int main(int argc, char* argv[])
 {
     std::list<Card> cards;
+    use_correct_input(argc, argv, cards);
 
-    if (USE_HARDCODED_INPUT)
-    {
-        std::string hardcoded_input = "10 4 10 3 10 2 3 6 9 9 5 1 9 10 10 "
-                                      "5 1 8 8 8 10 6 5 6 10 10 3 10 1 7 4 "
-                                      "2 3 7 10 2 7 1 5 10 8 10 7 2 10 10 "
-                                      "10 6 9 10 4 4\n";
-        cards = CardListReader::create_card_list(hardcoded_input);
-    }
-    else
-    {
-        if (argc < 2) EXIT_FAILURE;
-        std::string file_contents = CardListReader::file_contents(std::string(argv[1]));
-        cards = CardListReader::create_card_list(file_contents);
-    }
-
-
+    std::shared_ptr<Player> player;
+    choose_player(player);
 
     Deck d(cards);
-    std::shared_ptr<Player> player;
-
-    if (USE_PLAYER_NEVER_BUST)
-        player.reset(new PlayerNeverBust());
-    else
-        player.reset(new PlayerMaximizeWins());
-
     Blackjack game(d, player);
     game.start();
 
     return EXIT_SUCCESS;
+}
+
+
+void use_correct_input(int argc, char* argv[], std::list<Card>& cards)
+{
+    if (argc < 2)
+    {
+        std::cout << "Missing argument. Using example deck." << std::endl;
+        std::string hardcoded_input = "10 4 10 3 10 2 3 6 9 9 5 1 9 10 10 "
+                                      "5 1 8 8 8 10 6 5 6 10 10 3 10 1 7 4 "
+                                      "2 3 7 10 2 7 1 5 10 8 10 7 2 10 10 "
+                                      "10 6 9 10 4 4\n1";
+        cards = CardListReader::create_card_list(hardcoded_input);
+    }
+    else
+    {
+        std::string file_contents = CardListReader::file_contents(std::string(argv[1]));
+        cards = CardListReader::create_card_list(file_contents);
+    }
+}
+
+void choose_player(std::shared_ptr<Player>& player)
+{
+    std::cout << "Which strategy do you want to use? \n" <<
+                 "0    --> Never Bust \n" <<
+                 "1    --> Maximize Wins \n" <<
+                 "else --> Croupier Strategy" << std::endl;
+
+    char choose;
+    std::cin >> choose;
+
+    switch(choose)
+    {
+    case '0':
+        std::cout << "Chosen player: Never Bust" << std::endl;
+        player.reset(new PlayerNeverBust());
+        break;
+    case '1':
+        std::cout << "Chosen player: Maximize Wins" << std::endl;
+        player.reset(new PlayerMaximizeWins());
+        break;
+    default:
+        std::cout << "Chosen player: Croupier Strategy" << std::endl;
+        player.reset(new Croupier("CROUPIER2"));
+        break;
+    }
 }
 
