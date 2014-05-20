@@ -1,8 +1,8 @@
 #include "croupier.hpp"
 #include <sstream>
 
-Croupier::Croupier(std::string name)
-    : Player(name)
+Croupier::Croupier(std::shared_ptr<Deck>& deck, const std::string& name)
+    : Player(deck, name)
 {
 }
 
@@ -10,7 +10,7 @@ Croupier::~Croupier()
 {
 }
 
-std::string Croupier::use_own_strategy(Deck* const deck)
+std::string Croupier::use_own_strategy()
 {
-    return strategy_croupier_based(deck);
+    return strategy_croupier_based();
 }

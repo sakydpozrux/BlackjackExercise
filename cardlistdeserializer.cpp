@@ -1,4 +1,4 @@
-#include "cardlistreader.hpp"
+#include "cardlistdeserializer.hpp"
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -8,7 +8,7 @@
 #include <boost/lexical_cast.hpp>
 #include <exception>
 
-std::list<Card> CardListReader::create_card_list(std::string contents)
+std::list<Card> CardListDeserializer::create_card_list(std::string contents)
 {
     boost::trim(contents);
 
@@ -34,7 +34,7 @@ std::list<Card> CardListReader::create_card_list(std::string contents)
     return split_list_of_cards;
 }
 
-std::string CardListReader::file_contents(const std::string& path)
+std::string CardListDeserializer::file_contents(const std::string& path)
 {
     std::ifstream file(path);
 

@@ -6,10 +6,12 @@
 class PlayerNeverBust : public Player
 {
 public:
-    PlayerNeverBust();
+    PlayerNeverBust(std::shared_ptr<Deck>& deck);
     virtual ~PlayerNeverBust() final;
 
-    virtual std::string use_own_strategy(Deck* const deck) final;
+    virtual std::string use_own_strategy() final;
+private:
+    PlayerNeverBust() = delete;
 };
 
 #endif // PLAYERNEVERBUST_HPP

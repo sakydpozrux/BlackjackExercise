@@ -6,10 +6,12 @@
 class PlayerMaximizeWins : public Player
 {
 public:
-    PlayerMaximizeWins();
+    PlayerMaximizeWins(std::shared_ptr<Deck>& deck);
     virtual ~PlayerMaximizeWins() final;
 
-    virtual std::string use_own_strategy(Deck* const deck) final;
+    virtual std::string use_own_strategy() final;
+private:
+    PlayerMaximizeWins() = delete;
 };
 
 #endif // PLAYERMAXIMIZEWINS_HPP

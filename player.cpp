@@ -1,14 +1,10 @@
 #include "player.hpp"
 #include <sstream>
 #include <functional>
+#include "deck.hpp"
 
-Player::Player()
-    : name("PLAYER"), cards()
-{
-}
-
-Player::Player(const std::string& name)
-    : name(name), cards()
+Player::Player(std::shared_ptr<Deck>& deck, const std::string& name)
+    : deck(deck), cards(), name(name)
 {
 }
 
@@ -48,7 +44,7 @@ std::list<Card> Player::get_cards() const
     return cards;
 }
 
-std::string Player::round_initial_take(Deck* const deck)
+std::string Player::round_initial_take()
 {
     // I assume that there are at least 4 cards in the deck.
     cards.push_back(deck->take_next());
@@ -56,7 +52,7 @@ std::string Player::round_initial_take(Deck* const deck)
     return round_progress();
 }
 
-std::string Player::hit(Deck* const deck) throw(deck_is_empty)
+std::string Player::hit() throw(deck_is_empty)
 {
     deck_is_empty e;
     if (deck->size() < 1) throw e;
@@ -64,7 +60,7 @@ std::string Player::hit(Deck* const deck) throw(deck_is_empty)
     return round_progress();
 }
 
-std::string Player::strategy_croupier_based(Deck* const deck, int limit)
+std::string Player::strategy_croupier_based(int limit)
 {
     std::ostringstream stream;
 
@@ -72,7 +68,7 @@ std::string Player::strategy_croupier_based(Deck* const deck, int limit)
     {
         try
         {
-            stream << hit(deck);
+            stream << hit();
         }
         catch (deck_is_empty& e)
         {

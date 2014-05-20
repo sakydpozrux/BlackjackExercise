@@ -1,13 +1,10 @@
 #ifndef CARD_HPP
 #define CARD_HPP
 
-#include <exception>
+#include "const.hpp"
 #include <iostream>
 
-struct invalid_card_value : std::exception
-{
-    const char* what() const noexcept {return "Exception: card value is out of [1,10] range";}
-};
+
 
 class Card
 {

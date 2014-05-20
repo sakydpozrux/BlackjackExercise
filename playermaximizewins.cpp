@@ -1,7 +1,8 @@
 #include "playermaximizewins.hpp"
 #include <sstream>
 
-PlayerMaximizeWins::PlayerMaximizeWins()
+PlayerMaximizeWins::PlayerMaximizeWins(std::shared_ptr<Deck>& deck)
+    : Player(deck)
 {
 }
 
@@ -9,7 +10,7 @@ PlayerMaximizeWins::~PlayerMaximizeWins()
 {
 }
 
-std::string PlayerMaximizeWins::use_own_strategy(Deck* const deck)
+std::string PlayerMaximizeWins::use_own_strategy()
 {
-    return strategy_croupier_based(deck, 17);
+    return strategy_croupier_based(17);
 }

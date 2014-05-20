@@ -7,10 +7,12 @@
 class Croupier : public Player
 {
 public:
-    Croupier(std::string name = "CROUPIER");
+    Croupier(std::shared_ptr<Deck>& deck, const std::string& name = "CROUPIER");
     virtual ~Croupier() final;
 
-    virtual std::string use_own_strategy(Deck* const deck) final;
+    virtual std::string use_own_strategy() final;
+private:
+    Croupier() = delete;
 };
 
 #endif // CROUPIER_HPP
