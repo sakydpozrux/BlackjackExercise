@@ -1,11 +1,11 @@
-#include "player.hpp"
 #include <sstream>
-#include "deck.hpp"
 #include <memory>
+#include "player.hpp"
+#include "deck.hpp"
 #include "const.hpp"
 #include "deck.hpp"
 
-Player::Player(std::shared_ptr<Deck>& deck, const std::string& name)
+Player::Player(std::shared_ptr<Deck> deck, const std::string& name)
     : deck(deck), cards(), name(name)
 {
 }

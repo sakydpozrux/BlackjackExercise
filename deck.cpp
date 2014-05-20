@@ -1,7 +1,7 @@
+#include <list>
 #include "deck.hpp"
 #include "const.hpp"
 #include "card.hpp"
-#include <list>
 
 Deck::Deck(const CardList& cards_list) throw(initial_deck_size_is_not_52)
     : cards(cards_list), take_card_mutex()

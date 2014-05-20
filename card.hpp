@@ -1,9 +1,8 @@
 #ifndef CARD_HPP
 #define CARD_HPP
 
-#include "const.hpp"
 #include <iostream>
-
+#include "const.hpp"
 
 
 class Card

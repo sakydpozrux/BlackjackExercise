@@ -1,12 +1,12 @@
 #ifndef PLAYER_HPP
 #define PLAYER_HPP
 
+#include <memory>
 #include <string>
 #include <list>
 #include "card.hpp"
 #include "deck.hpp"
 #include "const.hpp"
-#include <memory>
 
 
 class Player
@@ -17,7 +17,7 @@ private:
     const std::string name;
 
 public:
-    Player(std::shared_ptr<Deck>& deck, const std::string& name = "PLAYER");
+    Player(std::shared_ptr<Deck> deck, const std::string& name = "PLAYER");
     virtual std::string round_progress() const;
     virtual std::string get_name() const;
     virtual void clear_cards() final;

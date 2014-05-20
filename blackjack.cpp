@@ -1,10 +1,10 @@
+#include <sstream>
 #include "blackjack.hpp"
 #include "croupier.hpp"
 #include "playerneverbust.hpp"
-#include <sstream>
 #include "round.hpp"
 
-Blackjack::Blackjack(std::shared_ptr<Deck>& deck, std::shared_ptr<Player>& player)
+Blackjack::Blackjack(std::shared_ptr<Deck> deck, std::shared_ptr<Player> player)
     : player(player), croupier(), deck(deck), total_player_score(0), total_croupier_score(0)
 {
     croupier.reset(new Croupier(deck));

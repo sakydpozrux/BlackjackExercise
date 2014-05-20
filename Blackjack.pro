@@ -14,7 +14,8 @@ SOURCES += main.cpp \
     card.cpp \
     playermaximizewins.cpp \
     cardlistdeserializer.cpp \
-    round.cpp
+    round.cpp \
+    playerfactory.cpp
 
 HEADERS += \
     blackjack.hpp \
@@ -26,7 +27,8 @@ HEADERS += \
     playermaximizewins.hpp \
     const.hpp \
     cardlistdeserializer.hpp \
-    round.hpp
+    round.hpp \
+    playerfactory.hpp
 
 QMAKE_CXXFLAGS += -Wall
 QMAKE_CXXFLAGS += -Wextra

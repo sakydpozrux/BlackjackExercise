@@ -1,7 +1,7 @@
-#include "round.hpp"
 #include <sstream>
+#include "round.hpp"
 
-Round::Round(std::shared_ptr<Player>& player, std::shared_ptr<Player>& croupier, std::shared_ptr<Deck>& deck)
+Round::Round(std::shared_ptr<Player> player, std::shared_ptr<Player> croupier, std::shared_ptr<Deck> deck)
     : player(player), croupier(croupier), deck(deck)
 {
     player->clear_cards();

@@ -18,7 +18,7 @@ private:
     int total_croupier_score;
 
 public:
-    Blackjack(std::shared_ptr<Deck>& deck, std::shared_ptr<Player>& player);
+    Blackjack(std::shared_ptr<Deck> deck, std::shared_ptr<Player> player);
     void start();
     void update_scores_after_round(players_enum result);
 

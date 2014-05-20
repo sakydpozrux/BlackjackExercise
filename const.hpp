@@ -4,8 +4,7 @@
 #include <exception>
 #include <list>
 
-//#include "card.hpp"
-class Card; // It's here because of cyclical includes problem.
+class Card;
 
 typedef std::list<Card> CardList;
 

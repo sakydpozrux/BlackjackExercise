@@ -13,7 +13,7 @@ class Round
     std::shared_ptr<Deck> deck;
 
 public:
-    Round(std::shared_ptr<Player>& player, std::shared_ptr<Player>& croupier, std::shared_ptr<Deck>& deck);
+    Round(std::shared_ptr<Player> player, std::shared_ptr<Player> croupier, std::shared_ptr<Deck> deck);
     std::string init_deal_cards();
     std::string let_players_play();
     void print_player_round_progress() const;

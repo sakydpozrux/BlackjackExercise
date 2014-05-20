@@ -1,9 +1,9 @@
-#include "playermaximizewins.hpp"
 #include <string>
 #include <memory>
+#include "playermaximizewins.hpp"
 #include "deck.hpp"
 
-PlayerMaximizeWins::PlayerMaximizeWins(std::shared_ptr<Deck>& deck)
+PlayerMaximizeWins::PlayerMaximizeWins(std::shared_ptr<Deck> deck)
     : Player(deck)
 {
 }

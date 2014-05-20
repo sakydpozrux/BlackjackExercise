@@ -1,18 +1,16 @@
+#include <memory>
+#include <iostream>
+#include <list>
 #include "blackjack.hpp"
 #include "deck.hpp"
-#include <memory>
-#include "player.hpp"
-#include "croupier.hpp"
-#include "playerneverbust.hpp"
-#include "playermaximizewins.hpp"
 #include "cardlistdeserializer.hpp"
-#include <list>
 #include "card.hpp"
-#include <iostream>
+#include "playerfactory.hpp"
+
 
 
 void use_correct_input(int argc, char* argv[], CardList& cards);
-void choose_player(std::shared_ptr<Deck>& deck, std::shared_ptr<Player>& player);
+std::shared_ptr<Player> choose_player(std::shared_ptr<Deck> deck);
 
 int main(int argc, char* argv[])
 {
@@ -20,8 +18,7 @@ int main(int argc, char* argv[])
     use_correct_input(argc, argv, cards);
 
     std::shared_ptr<Deck> deck(new Deck(cards));
-    std::shared_ptr<Player> player;
-    choose_player(deck, player);
+    std::shared_ptr<Player> player = PlayerFactory::choose_player(deck);
 
     Blackjack game(deck, player);
     game.start();
@@ -48,30 +45,5 @@ void use_correct_input(int argc, char* argv[], CardList& cards)
     }
 }
 
-void choose_player(std::shared_ptr<Deck>& deck, std::shared_ptr<Player>& player)
-{
-    std::cout << "Which strategy do you want to use? \n" <<
-                 "0    --> Never Bust \n" <<
-                 "1    --> Maximize Wins \n" <<
-                 "else --> Croupier Strategy" << std::endl;
 
-    char choose;
-    std::cin >> choose;
-
-    switch(choose)
-    {
-    case '0':
-        std::cout << "Chosen player: Never Bust" << std::endl;
-        player.reset(new PlayerNeverBust(deck));
-        break;
-    case '1':
-        std::cout << "Chosen player: Maximize Wins" << std::endl;
-        player.reset(new PlayerMaximizeWins(deck));
-        break;
-    default:
-        std::cout << "Chosen player: Croupier Strategy" << std::endl;
-        player.reset(new Croupier(deck, "CROUPIER2"));
-        break;
-    }
-}
 

@@ -1,9 +1,9 @@
-#include "playerneverbust.hpp"
 #include <string>
 #include <memory>
+#include "playerneverbust.hpp"
 #include "deck.hpp"
 
-PlayerNeverBust::PlayerNeverBust(std::shared_ptr<Deck>& deck)
+PlayerNeverBust::PlayerNeverBust(std::shared_ptr<Deck> deck)
     : Player(deck)
 {
 }

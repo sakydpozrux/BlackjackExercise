@@ -1,6 +1,6 @@
 #include "croupier.hpp"
 
-Croupier::Croupier(std::shared_ptr<Deck>& deck, const std::string& name)
+Croupier::Croupier(std::shared_ptr<Deck> deck, const std::string& name)
     : Player(deck, name)
 {
 }

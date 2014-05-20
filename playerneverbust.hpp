@@ -6,7 +6,7 @@
 class PlayerNeverBust : public Player
 {
 public:
-    PlayerNeverBust(std::shared_ptr<Deck>& deck);
+    PlayerNeverBust(std::shared_ptr<Deck> deck);
     virtual ~PlayerNeverBust() final;
 
     virtual std::string use_own_strategy() final;
