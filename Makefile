@@ -26,7 +26,8 @@ SOURCES       = main.cpp \
 		card.cpp \
 		playermaximizewins.cpp \
 		cardlistdeserializer.cpp \
-		round.cpp 
+		round.cpp \
+		playerfactory.cpp 
 OBJECTS       = main.o \
 		blackjack.o \
 		deck.o \
@@ -36,7 +37,8 @@ OBJECTS       = main.o \
 		card.o \
 		playermaximizewins.o \
 		cardlistdeserializer.o \
-		round.o
+		round.o \
+		playerfactory.o
 TARGET        = Blackjack
 
 
@@ -79,15 +81,15 @@ compiler_clean:
 
 ####### Compile
 
+####### Compile
+
 main.o: main.cpp blackjack.hpp \
 		deck.hpp \
 		card.hpp \
 		const.hpp \
 		player.hpp \
-		croupier.hpp \
-		playerneverbust.hpp \
-		playermaximizewins.hpp \
-		cardlistdeserializer.hpp
+		cardlistdeserializer.hpp \
+		playerfactory.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
 
 blackjack.o: blackjack.cpp blackjack.hpp \
@@ -147,5 +149,15 @@ round.o: round.cpp round.hpp \
 		const.hpp \
 		deck.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o round.o round.cpp
+
+playerfactory.o: playerfactory.cpp playerfactory.hpp \
+		player.hpp \
+		card.hpp \
+		const.hpp \
+		deck.hpp \
+		croupier.hpp \
+		playerneverbust.hpp \
+		playermaximizewins.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o playerfactory.o playerfactory.cpp
 
 
