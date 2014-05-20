@@ -1,16 +1,16 @@
 #ifndef BLACKJACK_HPP
 #define BLACKJACK_HPP
 
+#include <memory>
 #include "boost/scoped_ptr.hpp"
 #include "deck.hpp"
 #include "player.hpp"
 #include "croupier.hpp"
-#include "round.hpp"
 
 class Blackjack
 {
 private:
-    boost::scoped_ptr<Player> player;
+    std::shared_ptr<Player> player;
     boost::scoped_ptr<Player> croupier;
 
     int total_player_score;
@@ -18,7 +18,7 @@ private:
 
     Deck deck;
 public:
-    Blackjack(Deck& deck);
+    Blackjack(Deck& deck, std::shared_ptr<Player>& player);
     void start();
     players_enum result() const;
     void print_player_round_progress() const;

@@ -2,6 +2,7 @@
 #include "deck.hpp"
 #include <memory>
 #include "playerneverbust.hpp"
+#include "playermaximizewins.hpp"
 #include "cardlistreader.hpp"
 
 #include <list>
@@ -9,6 +10,7 @@
 #include <iostream>
 
 #define USE_HARDCODED_INPUT true
+#define USE_PLAYER_NEVER_BUST true
 
 int main(int argc, char* argv[])
 {
@@ -29,9 +31,17 @@ int main(int argc, char* argv[])
         cards = CardListReader::create_card_list(file_contents);
     }
 
-    Deck d(cards);
 
-    Blackjack game(d);
+
+    Deck d(cards);
+    std::shared_ptr<Player> player;
+
+    if (USE_PLAYER_NEVER_BUST)
+        player.reset(new PlayerNeverBust());
+    else
+        player.reset(new PlayerMaximizeWins());
+
+    Blackjack game(d, player);
     game.start();
 
     return EXIT_SUCCESS;

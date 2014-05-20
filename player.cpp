@@ -24,7 +24,7 @@ std::string Player::get_name() const
 std::string Player::round_progress() const
 {
     std::ostringstream output;
-    output << get_name() << ": " << cards << ": " << get_round_score();
+    output << get_name() << ": " << cards << ": " << get_round_score() << std::endl;
     return output.str();
 }
 
@@ -62,6 +62,24 @@ std::string Player::hit(Deck* const deck) throw(deck_is_empty)
     if (deck->size() < 1) throw e;
     cards.push_back(deck->take_next());
     return round_progress();
+}
+
+std::string Player::strategy_croupier_based(Deck* const deck, int limit)
+{
+    std::ostringstream stream;
+
+    while(get_round_score() < limit)
+    {
+        try
+        {
+            stream << hit(deck);
+        }
+        catch (deck_is_empty& e)
+        {
+            return stream.str();
+        }
+    }
+    return stream.str();
 }
 
 std::ostream& operator<<(std::ostream& stream, const std::list<Card>& cards)

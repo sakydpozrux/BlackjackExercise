@@ -1,13 +1,12 @@
 #include "blackjack.hpp"
 #include "croupier.hpp"
 #include "playerneverbust.hpp"
-#include "round.hpp"
 #include <sstream>
 
-Blackjack::Blackjack(Deck& deck)
-    : player(), croupier(), total_player_score(0), total_croupier_score(0), deck(deck)
+Blackjack::Blackjack(Deck& deck, std::shared_ptr<Player>& player)
+    : player(player), croupier(), total_player_score(0), total_croupier_score(0), deck(deck)
 {
-    player.reset(new PlayerNeverBust);
+    //player.reset(player);
     croupier.reset(new Croupier);
 }
 
@@ -18,12 +17,13 @@ void Blackjack::start()
         player->clear_cards();
         croupier->clear_cards();
 
-        std::cout << player->round_initial_take(&deck) << std::endl;
-        std::cout << croupier->round_initial_take(&deck) << std::endl;
+        std::cout << player->round_initial_take(&deck);
+        std::cout << croupier->round_initial_take(&deck);
 
 
-        std::cout << player->use_own_strategy(&deck) << std::endl;
-        std::cout << croupier->use_own_strategy(&deck) << std::endl;
+        std::cout << player->use_own_strategy(&deck);
+        if (player->get_round_score() <= 21)
+            std::cout << croupier->use_own_strategy(&deck);
 
         update_scores_after_round();
         std::cout << round_end_status() << std::endl;

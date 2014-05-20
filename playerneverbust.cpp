@@ -11,14 +11,5 @@ PlayerNeverBust::~PlayerNeverBust()
 
 std::string PlayerNeverBust::use_own_strategy(Deck* const deck)
 {
-    std::ostringstream stream;
-    try
-    {
-        stream << hit(deck);
-    }
-    catch (std::exception& e)
-    {
-        return stream.str();
-    }
-    return stream.str();
+    return strategy_croupier_based(deck, 12);
 }

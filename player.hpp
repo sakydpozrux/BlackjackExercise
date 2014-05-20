@@ -6,6 +6,12 @@
 #include "card.hpp"
 #include "deck.hpp"
 
+enum players_enum
+{
+    CROUPIER = 0,
+    PLAYER = 1
+};
+
 class Player
 {
 private:
@@ -28,6 +34,7 @@ public:
 
 protected:
     virtual std::string hit(Deck* const deck) throw(deck_is_empty) final;
+    virtual std::string strategy_croupier_based(Deck* const deck, int limit = 17) final;
 
     friend std::ostream& operator<<(std::ostream& stream, const std::list<Card>& cards);
 };
