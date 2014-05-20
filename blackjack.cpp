@@ -5,9 +5,8 @@
 #include "round.hpp"
 
 Blackjack::Blackjack(std::shared_ptr<Deck> deck, std::shared_ptr<Player> player)
-    : player(player), croupier(), deck(deck), total_player_score(0), total_croupier_score(0)
+    : player(player), croupier(new Croupier(deck)), deck(deck), total_player_score(0), total_croupier_score(0)
 {
-    croupier.reset(new Croupier(deck));
 }
 
 void Blackjack::start()
