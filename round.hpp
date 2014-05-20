@@ -19,9 +19,8 @@ public:
     void print_player_round_progress() const;
     void print_croupier_round_progress() const;
     std::string end_status(int total_player_score, int total_croupier_score) const;
-    players_enum result() const;
+    std::shared_ptr<Player> winner() const;
 private:
-    std::string get_string_winner() const;
     Round() = delete;
 };
 

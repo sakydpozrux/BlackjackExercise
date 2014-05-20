@@ -29,6 +29,7 @@ public:
     virtual ~Player();
 
     virtual std::string round_initial_take() final;
+    virtual void update_total_score(int& total_player_score, int& total_croupier_score);
 
 protected:
     virtual std::string hit() throw(deck_is_empty) final;

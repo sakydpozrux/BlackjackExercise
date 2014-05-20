@@ -19,24 +19,14 @@ void Blackjack::start()
         std::cout << round.init_deal_cards();
         std::cout << round.let_players_play();
 
-        update_scores_after_round(round.result());
+        update_scores_after_round(round.winner());
         std::cout << round.end_status(total_player_score, total_croupier_score);
     }
 }
 
-
-
-void Blackjack::update_scores_after_round(players_enum result)
+void Blackjack::update_scores_after_round(std::shared_ptr<Player> winner)
 {
-    switch (result)
-    {
-    case PLAYER:
-        total_player_score += 1;
-        break;
-    case CROUPIER:
-        total_croupier_score += 1;
-        break;
-    }
+    winner->update_total_score(total_player_score, total_croupier_score);
 }
 
 

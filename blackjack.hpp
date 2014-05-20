@@ -20,7 +20,7 @@ private:
 public:
     Blackjack(std::shared_ptr<Deck> deck, std::shared_ptr<Player> player);
     void start();
-    void update_scores_after_round(players_enum result);
+    void update_scores_after_round(std::shared_ptr<Player> winner);
 
 private:
     Blackjack() = delete;

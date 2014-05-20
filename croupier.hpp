@@ -11,6 +11,7 @@ public:
     virtual ~Croupier() final;
 
     virtual std::string use_own_strategy() final;
+    virtual void update_total_score(int& total_player_score, int& total_croupier_score) final;
 private:
     Croupier() = delete;
 };

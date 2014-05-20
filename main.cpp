@@ -10,7 +10,6 @@
 
 
 void use_correct_input(int argc, char* argv[], CardList& cards);
-std::shared_ptr<Player> choose_player(std::shared_ptr<Deck> deck);
 
 int main(int argc, char* argv[])
 {

@@ -54,6 +54,11 @@ std::string Player::round_initial_take()
     return round_progress();
 }
 
+void Player::update_total_score(int& total_player_score, int& total_croupier_score)
+{
+    total_player_score += 1;
+}
+
 std::string Player::hit() throw(deck_is_empty)
 {
     deck_is_empty e;
