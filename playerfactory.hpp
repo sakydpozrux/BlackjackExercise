@@ -8,6 +8,7 @@ class PlayerFactory
 {
 public:
     static std::shared_ptr<Player> choose_player(std::shared_ptr<Deck> deck);
+
 private:
     PlayerFactory() = delete;
     PlayerFactory(PlayerFactory& other) = delete;

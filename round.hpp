@@ -14,12 +14,17 @@ class Round
 
 public:
     Round(std::shared_ptr<Player> player, std::shared_ptr<Player> croupier, std::shared_ptr<Deck> deck);
+
     std::string init_deal_cards();
     std::string let_players_play();
+
     void print_player_round_progress() const;
     void print_croupier_round_progress() const;
+
     std::string end_status(int total_player_score, int total_croupier_score) const;
+
     std::shared_ptr<Player> winner() const;
+
 private:
     Round() = delete;
 };

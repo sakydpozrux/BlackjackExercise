@@ -7,10 +7,13 @@
 
 class Card
 {
+private:
     int value;
+
 public:
     Card(int value) throw(invalid_card_value);
     int get_value() const;
+
 private:
     Card() = delete;
 

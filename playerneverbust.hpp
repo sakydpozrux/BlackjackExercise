@@ -10,6 +10,7 @@ public:
     virtual ~PlayerNeverBust() final;
 
     virtual std::string use_own_strategy() final;
+
 private:
     PlayerNeverBust() = delete;
 };

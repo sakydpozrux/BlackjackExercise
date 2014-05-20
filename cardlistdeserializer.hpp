@@ -11,6 +11,7 @@ class CardListDeserializer
 public:
     static CardList create_card_list(std::string contents);
     static std::string file_contents(const std::string& file_name);
+
 private:
     CardListDeserializer() = delete;
     CardListDeserializer(CardListDeserializer& other) = delete;

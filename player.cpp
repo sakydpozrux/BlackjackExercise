@@ -48,13 +48,13 @@ CardList Player::get_cards() const
 
 std::string Player::round_initial_take()
 {
-    // I assume that there are at least 4 cards in the deck.
+    // I assume that there are at least 2 cards in the deck.
     cards.push_back(deck->take_next());
     cards.push_back(deck->take_next());
     return round_progress();
 }
 
-void Player::update_total_score(int& total_player_score, int& total_croupier_score)
+void Player::update_total_score(int& total_player_score, int&)
 {
     total_player_score += 1;
 }

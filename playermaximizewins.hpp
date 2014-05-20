@@ -10,6 +10,7 @@ public:
     virtual ~PlayerMaximizeWins() final;
 
     virtual std::string use_own_strategy() final;
+
 private:
     PlayerMaximizeWins() = delete;
 };
