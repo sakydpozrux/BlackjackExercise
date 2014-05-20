@@ -1,5 +1,7 @@
 #include "playerneverbust.hpp"
-#include <sstream>
+#include <string>
+#include <memory>
+#include "deck.hpp"
 
 PlayerNeverBust::PlayerNeverBust(std::shared_ptr<Deck>& deck)
     : Player(deck)

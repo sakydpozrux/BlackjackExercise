@@ -1,6 +1,8 @@
 #include "player.hpp"
 #include <sstream>
-#include <functional>
+#include "deck.hpp"
+#include <memory>
+#include "const.hpp"
 #include "deck.hpp"
 
 Player::Player(std::shared_ptr<Deck>& deck, const std::string& name)

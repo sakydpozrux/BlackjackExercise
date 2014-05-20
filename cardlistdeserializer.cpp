@@ -1,12 +1,11 @@
 #include "cardlistdeserializer.hpp"
-#include <iostream>
 #include <fstream>
 #include <string>
-#include <sstream>
 #include <list>
 #include <boost/algorithm/string.hpp>
 #include <boost/lexical_cast.hpp>
 #include <exception>
+#include "const.hpp"
 
 CardList CardListDeserializer::create_card_list(std::string contents)
 {

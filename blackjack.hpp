@@ -5,6 +5,7 @@
 #include "boost/scoped_ptr.hpp"
 #include "deck.hpp"
 #include "player.hpp"
+#include "const.hpp"
 
 class Blackjack
 {

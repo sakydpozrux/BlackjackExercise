@@ -1,4 +1,5 @@
 #include "card.hpp"
+#include "const.hpp"
 
 Card::Card(int value) throw(invalid_card_value)
     : value(value)

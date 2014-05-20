@@ -3,7 +3,7 @@
 
 #include <list>
 #include "card.hpp"
-#include <exception>
+#include "const.hpp"
 
 
 class CardListDeserializer
