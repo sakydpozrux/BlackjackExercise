@@ -2,6 +2,12 @@
 #define CONST_HPP
 
 #include <exception>
+#include <list>
+
+//#include "card.hpp"
+class Card; // It's here because of cyclical includes problem.
+
+typedef std::list<Card> CardList;
 
 struct invalid_card_value : std::exception
 {

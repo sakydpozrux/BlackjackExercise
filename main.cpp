@@ -11,12 +11,12 @@
 #include <iostream>
 
 
-void use_correct_input(int argc, char* argv[], std::list<Card>& cards);
+void use_correct_input(int argc, char* argv[], CardList& cards);
 void choose_player(std::shared_ptr<Deck>& deck, std::shared_ptr<Player>& player);
 
 int main(int argc, char* argv[])
 {
-    std::list<Card> cards;
+    CardList cards;
     use_correct_input(argc, argv, cards);
 
     std::shared_ptr<Deck> deck(new Deck(cards));
@@ -30,7 +30,7 @@ int main(int argc, char* argv[])
 }
 
 
-void use_correct_input(int argc, char* argv[], std::list<Card>& cards)
+void use_correct_input(int argc, char* argv[], CardList& cards)
 {
     if (argc < 2)
     {

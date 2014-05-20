@@ -54,10 +54,10 @@ std::string Round::get_string_winner() const
     switch (result())
     {
     case PLAYER:
-        winner = "PLAYER";
+        winner = player->get_name();
         break;
     case CROUPIER:
-        winner = "CROUPIER";
+        winner = croupier->get_name();
         break;
     }
     return winner;

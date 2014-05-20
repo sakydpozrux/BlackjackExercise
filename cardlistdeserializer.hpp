@@ -9,7 +9,7 @@
 class CardListDeserializer
 {
 public:
-    static std::list<Card> create_card_list(std::string contents);
+    static CardList create_card_list(std::string contents);
     static std::string file_contents(const std::string& file_name);
 private:
     CardListDeserializer() = delete;

@@ -8,14 +8,14 @@
 #include <boost/lexical_cast.hpp>
 #include <exception>
 
-std::list<Card> CardListDeserializer::create_card_list(std::string contents)
+CardList CardListDeserializer::create_card_list(std::string contents)
 {
     boost::trim(contents);
 
     std::list<std::string> split_list_of_strings;
     boost::split(split_list_of_strings, contents, boost::is_any_of(" ,\t,\n"), boost::token_compress_on);
 
-    std::list<Card> split_list_of_cards;
+    CardList split_list_of_cards;
 
     try
     {

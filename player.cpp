@@ -39,7 +39,7 @@ int Player::get_round_score() const
     return sum;
 }
 
-std::list<Card> Player::get_cards() const
+CardList Player::get_cards() const
 {
     return cards;
 }
@@ -78,7 +78,7 @@ std::string Player::strategy_croupier_based(int limit)
     return stream.str();
 }
 
-std::ostream& operator<<(std::ostream& stream, const std::list<Card>& cards)
+std::ostream& operator<<(std::ostream& stream, const CardList& cards)
 {
     for (const Card& card : cards)
         stream << card << " ";
