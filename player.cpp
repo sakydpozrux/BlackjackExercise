@@ -61,9 +61,11 @@ void Player::update_total_score(int& total_player_score, int&)
 
 std::string Player::hit() throw(deck_is_empty)
 {
-    deck_is_empty e;
-    if (deck->size() < 1) throw e;
+    std::lock_guard<std::mutex> lock(deck->take_card_mutex);
+
+    if (deck->size() < 1) throw deck_is_empty();
     cards.push_back(deck->take_next());
+
     return round_progress();
 }
 

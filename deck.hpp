@@ -21,6 +21,8 @@ public:
 
     unsigned int size() const;
     Card take_next();
+
+    friend class Player;
 };
 
 #endif // DECK_HPP

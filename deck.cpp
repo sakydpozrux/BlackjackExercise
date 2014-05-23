@@ -6,8 +6,7 @@
 Deck::Deck(const CardList& cards_list) throw(initial_deck_size_is_not_52)
     : cards(cards_list), take_card_mutex()
 {
-    initial_deck_size_is_not_52 e;
-    if (cards.size() != 52) throw e;
+    if (cards.size() != 52) throw initial_deck_size_is_not_52();
 }
 
 Deck::Deck(const Deck& other)
@@ -32,10 +31,8 @@ unsigned int Deck::size() const
 
 Card Deck::take_next()
 {
-    take_card_mutex.lock();
     Card next_card_val = cards.front();
     cards.pop_front();
-    take_card_mutex.unlock();
 
     return next_card_val;
 }
