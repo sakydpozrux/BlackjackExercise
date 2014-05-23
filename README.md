@@ -2,10 +2,14 @@ BlackjackExcercise
 ==================
 
 Blackjack 
-Do Blackjack'a wykorzystuje się talię złożoną z 52 kart. Gra polega na tym, aby zdobyć 21 punktów lub jak najbardziej zbliżyć się do tej liczby. 
+
+Do Blackjack'a wykorzystuje się talię złożoną z 52 kart. Gra polega na tym, aby zdobyć 21 punktów lub jak najbardziej zbliżyć się do tej liczby.
+
 W kasynie rozgrywka odbywa się między grającym, a krupierem. Gra podzielona jest na rundy. Jeśli przed rozpoczęciem rundy w talii znajduje się mniej niż 4 karty, gra kończy się.
+
 Każda runda rozpoczyna się od rozdania 2 kart każdej ze stron. Gracz na podstawie wartości posiadanych kart (patrz punktacja kart w Blackjacku) podejmuje decyzje czy chce dobierać
 kolejne karty. Jeżeli suma jego kart przekroczy 21 automatycznie przegrywa, w przypadku gdy zdobędzie 21 punktów wygrywa automatycznie. 
+
 W momencie gdy gracz zrezygnuje z dobierania kolejnych kart, krupier odkrywa swoje i rozpoczyna grę. Jeżeli suma kart krupiera wynosi mniej niż 17 to według zasad musi on dobrać kolejną kartę, 
 w przeciwnym wypadku zawsze kończy dobieranie kart. Jeśli krupier zdobędzie więcej punktów niż gracz, nie przekraczając 21, wygrywa rundę. W przypadku remisu, rundę wygrywa krupier.
 
@@ -15,21 +19,21 @@ Napisz program realizujący grę w Blackjack'a wg. wymienionych zasad. Zaimpleme
  - maksymalizującą ilość wygranych
 
 W trakcie każdej rundy program powinien wyświetlać na stdout jej przebieg w postaci:
-
-[PLAYER/CROUPIER] : [wartości dobranych kart] : [suma dobranych kart]
-...
-END OF ROUND: [PLAYER/CROUPIER] WON, SCORE(PLAYER: [wartość], CROUPIER: [wartosc])
-...
-
+   
+    [PLAYER/CROUPIER] : [wartości dobranych kart] : [suma dobranych kart]
+    ...
+    END OF ROUND: [PLAYER/CROUPIER] WON, SCORE(PLAYER: [wartość], CROUPIER: [wartosc])
+    ...
+    
 np:
-
-PLAYER: 10 8 : 18
-PLAYER: 10 8 2 : 20 
-CROUPIER: 2 4 : 6
-CROUPIER: 2 4 9 : 15
-CROUPIER: 2 4 9 3 : 18
-END OF ROUND: PLAYER WON, SCORE(PLAYER: 1, CROUPIER: 0)
-...
+    
+    PLAYER: 10 8 : 18
+    PLAYER: 10 8 2 : 20 
+    CROUPIER: 2 4 : 6
+    CROUPIER: 2 4 9 : 15
+    CROUPIER: 2 4 9 3 : 18
+    END OF ROUND: PLAYER WON, SCORE(PLAYER: 1, CROUPIER: 0)
+    ...
 
 Talia do gry dostarczona jest w pliku. Program powinien wczytywać plik podany jako argument.
 
