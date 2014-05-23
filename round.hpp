@@ -24,9 +24,6 @@ public:
     std::string end_status(int total_player_score, int total_croupier_score) const;
 
     std::shared_ptr<Player> winner() const;
-
-private:
-    Round() = delete;
 };
 
 #endif // ROUND_HPP

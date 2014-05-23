@@ -23,9 +23,8 @@ public:
     void update_scores_after_round(std::shared_ptr<Player> winner);
 
 private:
-    Blackjack() = delete;
-    Blackjack& operator=(Blackjack& other) = delete;
-    Blackjack(Blackjack& other) = delete;
+    Blackjack& operator=(const Blackjack& other) = delete;
+    Blackjack(const Blackjack& other) = delete;
 
 };
 

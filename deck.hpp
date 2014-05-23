@@ -21,9 +21,6 @@ public:
 
     unsigned int size() const;
     Card take_next();
-
-private:
-    Deck() = delete;
 };
 
 #endif // DECK_HPP

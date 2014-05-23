@@ -14,8 +14,8 @@ public:
 
 private:
     CardListDeserializer() = delete;
-    CardListDeserializer(CardListDeserializer& other) = delete;
-    CardListDeserializer& operator=(CardListDeserializer& other) = delete;
+    CardListDeserializer(const CardListDeserializer& other) = delete;
+    CardListDeserializer& operator=(const CardListDeserializer& other) = delete;
 };
 
 #endif // CARDLISTDESERIALIZER_HPP

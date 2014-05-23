@@ -11,8 +11,8 @@ public:
 
 private:
     PlayerFactory() = delete;
-    PlayerFactory(PlayerFactory& other) = delete;
-    PlayerFactory& operator=(PlayerFactory& other) = delete;
+    PlayerFactory(const PlayerFactory& other) = delete;
+    PlayerFactory& operator=(const PlayerFactory& other) = delete;
 };
 
 #endif // PLAYERFACTORY_HPP
