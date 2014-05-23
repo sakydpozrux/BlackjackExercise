@@ -1,4 +1,4 @@
-BlackjackExcercise
+BlackjackExercise
 ==================
 
 Blackjack 
