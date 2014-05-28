@@ -23,11 +23,4 @@ struct deck_is_empty : std::exception
     const char* what() const noexcept {return "Exception: deck is empty. Player can\'t take more cards";}
 };
 
-enum players_enum
-{
-    CROUPIER = 0,
-    PLAYER = 1
-};
-
-
 #endif // CONST_HPP
